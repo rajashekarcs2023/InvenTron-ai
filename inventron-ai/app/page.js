@@ -225,7 +225,7 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div style={{ backgroundColor: '#800080', minHeight: '100vh', padding: '2rem' }}>
-        <Container sx={{ width: '90%', maxWidth: '600px', py: 2, backgroundColor: '#6d9773', borderRadius: '8px' }}>
+        <Container sx={{ width: '90%', maxWidth: '600px', py: 2, backgroundColor: '#D8BFD8', borderRadius: '8px' }}>
           <Typography variant="h4" gutterBottom align="center" sx={{ color: 'white' }}>
             Tracking Pantry Items and Recipes Recommendations
           </Typography>
@@ -390,7 +390,7 @@ export default function Home() {
                     border: '1px solid white', // White border for each item
                     borderRadius: '4px', // Optional: rounded corners
                     mb: 1, // Optional: margin bottom for spacing between items
-                    backgroundColor: '#6d9773', // Highlight matching item
+                    backgroundColor: '#FFA07A', // Highlight matching item
                     color: 'black', // Text color
                     display: 'flex',
                     alignItems: 'center', // Align items in the center
