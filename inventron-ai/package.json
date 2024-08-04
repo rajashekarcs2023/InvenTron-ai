@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:css": "postcss src/styles.css -o dist/styles.css"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
