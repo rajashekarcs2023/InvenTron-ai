@@ -38,34 +38,38 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // Create the theme with updated colors and font
 const theme = createTheme({
   typography: {
-    fontFamily: '"Roboto", "Arial", sans-serif', // Set Roboto as the primary font
+    fontFamily: '"Open Sans", "Arial", sans-serif', // Set Open Sans as the primary font
   },
   palette: {
     primary: {
-      main: '#ffffff', // Custom primary color for buttons
+      main: '#00796C', // Custom primary color for buttons
     },
     secondary: {
-      main: '#0c3b2e', // Custom secondary color
+      main: '#c2185b', // Custom secondary color
     },
     text: {
-      primary: '#ffffff', // Set primary text color to white
-      secondary: '#ffffff', // Set secondary text color to white
+      primary: '#000000', // Set primary text color to black
+      secondary: '#757575', // Set secondary text color to grey
     },
     background: {
-      default: '#e8f5e9', // Background color for the app
-      paper: '#0c3b2e', // Background color for Paper component
+      default: '#b2dfdb', // Background color for the app
+      paper: '#f8bbd0', // Background color for Paper component
     },
   },
 });
 
 // Define available categories
 const categoriesList = [
-  "Produce",
-  "Poultry and Meat",
-  "Snacks",
-  "Starches",
-  "Nuts and Seeds",
-  "Neutral"
+  "Vegetables",
+  "Fruits",
+  "Bread and Bakery",
+  "Dairy",
+  "Meat",
+  "beverages",
+  "Canned Goods",
+  "Frozen Foods",
+  "snacks",
+  "detegents",
 ];
 
 export default function Home() {
@@ -220,12 +224,12 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div style={{ backgroundColor: '#c8e6c9', minHeight: '100vh', padding: '2rem' }}>
+      <div style={{ backgroundColor: '#800080', minHeight: '100vh', padding: '2rem' }}>
         <Container sx={{ width: '90%', maxWidth: '600px', py: 2, backgroundColor: '#6d9773', borderRadius: '8px' }}>
           <Typography variant="h4" gutterBottom align="center" sx={{ color: 'white' }}>
-            Pantry Tracker
+            Tracking Pantry Items and Recipes Recommendations
           </Typography>
-          <Paper elevation={3} sx={{ p: 3, backgroundColor: '#0c3b2e', display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Paper elevation={3} sx={{ p: 3, backgroundColor: '#FFB6C1', display: 'flex', flexDirection: 'column', gap: 2 }}>
           <form onSubmit={addItem} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {/* Existing TextField components */}
           <TextField
@@ -238,9 +242,9 @@ export default function Home() {
             sx={{ 
               borderRadius: '4px', // Optional: rounded corners
               mb: 1, // Optional: margin bottom for spacing between items
-              backgroundColor: '#66bb6a', // Background color of the TextField
-              input: { color: 'white' }, 
-              label: { color: 'white' }, 
+              backgroundColor: '#ADD8E6', // Background color of the TextField
+              input: { color: 'black' }, 
+              label: { color: 'black' }, 
             }}
           />
           <TextField
@@ -254,9 +258,9 @@ export default function Home() {
             sx={{
               borderRadius: '4px', // Optional: rounded corners
               mb: 1, // Optional: margin bottom for spacing between items
-              backgroundColor: '#66bb6a', // Background color of the TextField
-              input: { color: 'white' }, 
-              label: { color: 'white' }, 
+              backgroundColor: '#ADD8E6', // Background color of the TextField
+              input: { color: 'black' }, 
+              label: { color: 'black' }, 
             }}
           />
           <TextField
@@ -269,21 +273,21 @@ export default function Home() {
             sx={{
               borderRadius: '4px',
               mb: 1,
-              backgroundColor: '#66bb6a',
-              input: { color: 'white' },
-              label: { color: 'white' },
+              backgroundColor: '#ADD8E6',
+              input: { color: 'black' },
+              label: { color: 'black' },
             }}
           />
           <FormControl fullWidth>
             <InputLabel 
               id="category-label" 
               sx={{
-                color: 'white',
+                color: 'black',
                 fontFamily: '"Roboto", "Arial", sans-serif',
                 fontSize: isMobile ? '0.875rem' : '1rem', // Corrected 'rem' to '1rem'
                 '&.Mui-focused': {
                   // Ensure the label styles when focused
-                  color: 'white',
+                  color: 'black',
                 },
               }}
             >
@@ -297,8 +301,8 @@ export default function Home() {
               fullWidth
               size={isMobile ? "small" : "medium"}
               sx={{
-                backgroundColor: '#66bb6a', // Background color of the Select field
-                color: 'white',
+                backgroundColor: '#ADD8E6', // Background color of the Select field
+                color: 'black',
               }}
               label="Category" // Add label to the Select
             >
@@ -315,14 +319,16 @@ export default function Home() {
             color="primary"
             size={isMobile ? "small" : "medium"}
             sx={{ 
-              color: 'black', 
-              backgroundColor: '#ffba00', 
-              padding: '.2rem .2rem', 
+              color: 'yellow', 
+              backgroundColor: '#004d40', // Custom dark teal background color
+              padding: '.5rem 1rem', 
               maxWidth: '200px', 
               width: 'auto', 
               display: 'block', 
-              margin: '0 auto', 
-              '&:hover': { backgroundColor: '#e0a800' } 
+              margin: '1rem auto', 
+              '&:hover': { 
+                backgroundColor: '#00796b' // Custom lighter teal hover effect 
+              }
             }}
           >
             Add
@@ -333,19 +339,21 @@ export default function Home() {
             color="secondary"
             size={isMobile ? "small" : "medium"}
             sx={{
-              color: 'black',
-              backgroundColor: '#ffba00',
-              padding: '.2rem .2rem',
-              maxWidth: '200px',
-              width: 'auto',
-              display: 'block',
-              margin: '1rem auto',
-              '&:hover': { backgroundColor: '#e0a800' }
+              color: 'yellow',
+              backgroundColor: '#003366', // Dark blue background color
+              padding: '.2rem .2rem', 
+              maxWidth: '200px', 
+              width: 'auto', 
+              display: 'block', 
+              margin: '0 auto', 
+              '&:hover': { 
+                backgroundColor: '#336699' // Light blue hover effect 
+              }
             }}
           >
-            Get Recipe Recommendations
+            Show Me Some Recipe Recommendations
           </Button>
-          <Typography variant="h6" gutterBottom align="center" sx={{ color: 'white' }}>
+          <Typography variant="h6" gutterBottom align="center" sx={{ color: 'red' }}>
             Recipe Recommendations
           </Typography>
           <Paper elevation={3} sx={{ p: 2, backgroundColor: '#0c3b2e' }}>
@@ -369,9 +377,9 @@ export default function Home() {
               size={isMobile ? "small" : "medium"}
               sx={{
                 borderRadius: '4px', // Optional: rounded corners
-                backgroundColor: '#66bb6a', // Background color of the search field
-                input: { color: 'white' }, 
-                label: { color: 'white' }, 
+                backgroundColor: '#FFD700', // Background color of the search field
+                input: { color: 'black' }, 
+                label: { color: 'black' }, 
               }}
             />
             <List>
@@ -383,7 +391,7 @@ export default function Home() {
                     borderRadius: '4px', // Optional: rounded corners
                     mb: 1, // Optional: margin bottom for spacing between items
                     backgroundColor: '#6d9773', // Highlight matching item
-                    color: 'white', // Text color
+                    color: 'black', // Text color
                     display: 'flex',
                     alignItems: 'center', // Align items in the center
                     gap: '1rem' // Add space between image and text
@@ -391,13 +399,13 @@ export default function Home() {
                   secondaryAction={
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <IconButton edge="end" aria-label="increase" onClick={() => increaseQuantity(item.id, item.quantity)}>
-                        <AddIcon sx={{ color: 'white' }} />
+                        <AddIcon sx={{ color: 'blue' }} />
                       </IconButton>
                       <IconButton edge="end" aria-label="decrease" onClick={() => decreaseQuantity(item.id, item.quantity)}>
-                        <RemoveIcon sx={{ color: 'white' }} />
+                        <RemoveIcon sx={{ color: 'blue' }} />
                       </IconButton>
                       <IconButton edge="end" aria-label="delete" onClick={() => deleteItem(item.id)}>
-                        <DeleteIcon sx={{ color: 'white' }} />
+                        <DeleteIcon sx={{ color: 'blue' }} />
                       </IconButton>
                     </div>
                   }
