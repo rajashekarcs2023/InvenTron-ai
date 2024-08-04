@@ -18,7 +18,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const firestore = getFirestore(app);
-export {firestore};
+
+
+let app;
+let analytics;
+let db;
+
+if (typeof window !== 'undefined') {
+  app = initializeApp(firebaseConfig);
+  analytics = getAnalytics(app); // Optional: Remove if you don't use Analytics
+  db = getFirestore(app);
+}
+
+export {db};
