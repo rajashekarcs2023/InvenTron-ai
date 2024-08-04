@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore .env files
+inventron-ai/app/.env
+# .gitignore
+inventron-ai/.env
+# .gitignore
+inventron-ai/public/.env
+# .gitignore
+.env
